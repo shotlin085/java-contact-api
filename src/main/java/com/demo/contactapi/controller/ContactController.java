@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/contacts")
+@CrossOrigin(origins = "${cors.allowed-origins}")
 public class ContactController {
 
     private final ContactService contactService;

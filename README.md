@@ -82,6 +82,45 @@ mvn spring-boot:run
 
 ---
 
+## CORS Configuration
+
+The API includes environment-based CORS configuration to handle cross-origin requests from frontend applications.
+
+### Environment Variables
+
+Add these CORS-related variables to your `.env` file:
+
+```bash
+# CORS Configuration
+CORS_ALLOWED_ORIGINS=https://your-frontend-domain.com,http://localhost:3000
+CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,OPTIONS
+CORS_ALLOWED_HEADERS=*
+CORS_ALLOW_CREDENTIALS=true
+CORS_MAX_AGE=3600
+```
+
+### Configuration Details
+
+- **CORS_ALLOWED_ORIGINS**: Comma-separated list of allowed origins (frontend URLs)
+- **CORS_ALLOWED_METHODS**: HTTP methods allowed for CORS requests
+- **CORS_ALLOWED_HEADERS**: Headers allowed in CORS requests (* allows all)
+- **CORS_ALLOW_CREDENTIALS**: Whether to allow credentials in CORS requests
+- **CORS_MAX_AGE**: How long browsers can cache CORS preflight responses (seconds)
+
+### Production Example
+
+For production deployment with a specific frontend domain:
+
+```bash
+CORS_ALLOWED_ORIGINS=https://nuxt-contact-m48o97.apps.shotlin.in
+CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,OPTIONS
+CORS_ALLOWED_HEADERS=Content-Type,Authorization,X-Requested-With
+CORS_ALLOW_CREDENTIALS=true
+CORS_MAX_AGE=3600
+```
+
+---
+
 ## Example Requests
 
 ### Health check
