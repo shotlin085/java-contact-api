@@ -13,6 +13,7 @@ Simple Spring Boot Contact API — Java enterprise-style backend demo.
 
 | Method | Path             | Description       |
 |--------|------------------|-------------------|
+| GET    | /                | API information   |
 | GET    | /health          | Health check      |
 | POST   | /contacts        | Create a contact  |
 | GET    | /contacts        | Get all contacts  |
@@ -122,6 +123,36 @@ CORS_MAX_AGE=3600
 ---
 
 ## Example Requests
+
+### Root endpoint (API info)
+```bash
+curl http://localhost:5005/
+```
+
+Response:
+```json
+{
+  "message": "Welcome to Java Contact API",
+  "app": "java-contact-api",
+  "version": "1.0.0",
+  "environment": "development",
+  "language": "Java",
+  "framework": "Spring Boot 3.2",
+  "timestamp": "2026-05-15T21:21:34",
+  "endpoints": {
+    "health": "GET /health - Health check",
+    "contacts": "GET /contacts - Get all contacts",
+    "create_contact": "POST /contacts - Create a new contact",
+    "get_contact": "GET /contacts/{id} - Get contact by ID"
+  },
+  "documentation": {
+    "description": "Simple Spring Boot Contact API for managing contacts",
+    "database": "MySQL with JPA",
+    "cache": "Redis",
+    "cors_enabled": true
+  }
+}
+```
 
 ### Health check
 ```bash
